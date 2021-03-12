@@ -1,16 +1,16 @@
 ![Logo Compasso](https://compasso.com.br/wp-content/uploads/2020/07/LogoCompasso-Negativo.png)
 
-# CatÃ¡logo de produtos
+# Catálogo de produtos
 
-Sua tarefa Ã© implementar um catÃ¡logo de produtos com Java e Spring Boot.
+Sua tarefa é implementar um catálogo de produtos com Java e Spring Boot.
 
 ## product-ms
 
-Neste microserviÃ§o deve ser possÃ­vel criar, alterar, visualizar e excluir um determinado produto, alÃ©m de visualizar a lista de produtos atuais disponÃ­veis. TambÃ©m deve ser possÃ­vel realizar a busca de produtos filtrando por *name, description e price*.
+Neste microserviço deve ser possível criar, alterar, visualizar e excluir um determinado produto, além de visualizar a lista de produtos atuais disponíveis. Também deve ser possível realizar a busca de produtos filtrando por *name, description e price*.
 
 ### Formato
 
-O formato esperado de um produto Ã© o seguinte:
+O formato esperado de um produto é o seguinte:
 
 ```javascript
   {
@@ -20,31 +20,31 @@ O formato esperado de um produto Ã© o seguinte:
     "price": 59.99
   }
 ```
-Durante a criaÃ§Ã£o e alteraÃ§Ã£o, os campos *name, description e price* sÃ£o obrigatÃ³rios. Em relaÃ§Ã£o ao campo *price* o valor deve ser positivo.
+Durante a criação e alteração, os campos *name, description e price* são obrigatórios. Em relação ao campo *price* o valor deve ser positivo.
 
 ### Endpoints
 
-Devem ser disponibilizados os seguintes endpoints para operaÃ§Ã£o do catÃ¡logo de produtos:
+Devem ser disponibilizados os seguintes endpoints para operação do catálogo de produtos:
 
 
-| Verbo HTTP  |  Resource path    |           DescriÃ§Ã£o           |
+| Verbo HTTP  |  Resource path    |           Descrição           |
 |-------------|:-----------------:|------------------------------:|
-| POST        |  /products        |   CriaÃ§Ã£o de um produto       |
-| PUT         |  /products/{id}   |   AtualizaÃ§Ã£o de um produto   |
+| POST        |  /products        |   Criação de um produto       |
+| PUT         |  /products/{id}   |   Atualização de um produto   |
 | GET         |  /products/{id}   |   Busca de um produto por ID  |
 | GET         |  /products        |   Lista de produtos           |
 | GET         |  /products/search |   Lista de produtos filtrados |
-| DELETE      |  /products/{id}   |   DeleÃ§Ã£o de um produto       |
+| DELETE      |  /products/{id}   |   Deleção de um produto       |
 
 #### POST /products
 
-Esse endpoint deve criar um novo produto na base de dados, ao receber o JSON do produto o mesmo deverÃ¡ ser validado em acordo com as regras da seÃ§Ã£o **Formato**, e, caso esteja vÃ¡lido, persistido na base de dados e retornado com o *id* gerado e HTTP 201.
+Esse endpoint deve criar um novo produto na base de dados, ao receber o JSON do produto o mesmo deverá ser validado em acordo com as regras da seção **Formato**, e, caso esteja válido, persistido na base de dados e retornado com o *id* gerado e HTTP 201.
 
 Entrada:
 ```javascript
   {
     "name": "nome",
-    "description": "descriÃ§Ã£o",
+    "description": "descrição",
     "price": <preco>
   }
 ```
@@ -54,12 +54,12 @@ Retorno:
   {
     "id": "id gerado",
     "name": "nome",
-    "description": "descriÃ§Ã£o",
+    "description": "descrição",
     "price": <preco>
   }
 ```
 
-Em caso de algum erro de validaÃ§Ã£o, a API deve retornar um HTTP 400 indicando uma requisiÃ§Ã£o invÃ¡lida. O JSON retornado nesse caso deve seguir o seguinte formato:
+Em caso de algum erro de validação, a API deve retornar um HTTP 400 indicando uma requisição inválida. O JSON retornado nesse caso deve seguir o seguinte formato:
 
 ```javascript
   {
@@ -67,17 +67,17 @@ Em caso de algum erro de validaÃ§Ã£o, a API deve retornar um HTTP 400 indica
     "message": "string"
   }
 ```
-No campo *status_code* deve vir o cÃ³digo HTTP do erro de validaÃ§Ã£o (400 Bad Request). No campo *message* deverÃ¡ vir uma mensagem genÃ©rica indicando o erro ocorrido.
+No campo *status_code* deve vir o código HTTP do erro de validação (400 Bad Request). No campo *message* deverá vir uma mensagem genérica indicando o erro ocorrido.
 
 #### PUT /products/\{id\}
 
-Esse endpoint deve atualizar um produto baseado no {id} passado via path param. Antes de alterar, deve ser consultada a base de dados pelo *id*, se o produto NÃƒO for localizado entÃ£o devolver um HTTP 404 ao cliente. Se localizar o produto, entÃ£o os campos *name, description e price* devem ser atualizados conforme recebidos no body da requisiÃ§Ã£o.
+Esse endpoint deve atualizar um produto baseado no {id} passado via path param. Antes de alterar, deve ser consultada a base de dados pelo *id*, se o produto NÃO for localizado então devolver um HTTP 404 ao cliente. Se localizar o produto, então os campos *name, description e price* devem ser atualizados conforme recebidos no body da requisição.
 
 Entrada:
 ```javascript
   {
     "name": "nome",
-    "description": "descriÃ§Ã£o",
+    "description": "descrição",
     "price": <preco>
   }
 ```
@@ -87,12 +87,12 @@ Retorno:
   {
     "id": "id atualizado",
     "name": "nome",
-    "description": "descriÃ§Ã£o",
+    "description": "descrição",
     "price": <preco>
   }
 ```
 
-Importante que antes da atualizaÃ§Ã£o as mesmas regras de validaÃ§Ã£o do POST /products devem ser executadas para garantir consistÃªncia, e, se ocorrer erro retornar no mesmo formato:
+Importante que antes da atualização as mesmas regras de validação do POST /products devem ser executadas para garantir consistência, e, se ocorrer erro retornar no mesmo formato:
 
 ```javascript
   {
@@ -103,14 +103,14 @@ Importante que antes da atualizaÃ§Ã£o as mesmas regras de validaÃ§Ã£o do
 
 #### GET /products/\{id\}
 
-Esse endpoint deve retornar o product localizado na base de dados com um HTTP 200. Em caso de nÃ£o localizaÃ§Ã£o do produto, a API deve retornar um HTTP 404 indicando que o recurso nÃ£o foi localizado, nÃ£o hÃ¡ necessidade de retornar um JSON (response body) nesse caso.
+Esse endpoint deve retornar o product localizado na base de dados com um HTTP 200. Em caso de não localização do produto, a API deve retornar um HTTP 404 indicando que o recurso não foi localizado, não há necessidade de retornar um JSON (response body) nesse caso.
 
 Retorno:
 ```javascript
   {
     "id": "id buscado",
     "name": "nome",
-    "description": "descriÃ§Ã£o",
+    "description": "descrição",
     "price": <preco>
   }
 ```
@@ -125,13 +125,13 @@ Retorno com produtos:
   {
     "id": "id produto 1",
     "name": "nome",
-    "description": "descriÃ§Ã£o",
+    "description": "descrição",
     "price": <preco>
   },
   {
     "id": "id produto 2",
     "name": "nome",
-    "description": "descriÃ§Ã£o",
+    "description": "descrição",
     "price": <preco>
   }
 ]
@@ -148,15 +148,15 @@ Nesse endpoint a API deve retornar a lista atual de todos os produtos filtrados 
 
 Os query parameters aceitos serÃ£o: q, min_price e max_price.
 
-**Importante: nenhum deles deverÃ¡ ser obrigatÃ³rio na requisiÃ§Ã£o**
+**Importante: nenhum deles deverá ser obrigatório na requisição**
 
 Onde:
 
-| Query param |  AÃ§Ã£o de filtro     
+| Query param |  Ação de filtro     
 |-------------|:---------------------------------------------------------------:|
-| q           |  deverÃ¡ bater o valor contra os campos *name* e *description*   |
-| min_price   | deverÃ¡ bater o valor ">=" contra o campo *price*                |
-| max_price   | deverÃ¡ bater o valor "<=" contra o campo *price*                |
+| q           |  deverá bater o valor contra os campos *name* e *description*   |
+| min_price   | deverá bater o valor ">=" contra o campo *price*                |
+| max_price   | deverá bater o valor "<=" contra o campo *price*                |
 
 **Exemplo: /products/search?min_price=10.5&max_price=50&q=superget**
 
@@ -166,13 +166,13 @@ Retorno com produtos filtrados/buscados:
   {
     "id": "id produto 1",
     "name": "nome",
-    "description": "descriÃ§Ã£o",
+    "description": "descrição",
     "price": <preco>
   },
   {
     "id": "id produto 2",
     "name": "nome",
-    "description": "descriÃ§Ã£o",
+    "description": "descrição",
     "price": <preco>
   }
 ]
@@ -187,14 +187,14 @@ Retorno vazio:
 
 Esse endpoint deve deletar um registro de produto na base de dados. Caso encontre o produto filtrando pelo *id* entÃ£o deve deletar e retornar um HTTP 200. Se o *id* passado nÃ£o foi localizado deve retornar um HTTP 404
 
-## ValidaÃ§Ã£o
+## Validação
 
-A validaÃ§Ã£o dos endpoints e sua correta funcionalidade serÃ¡ atravÃ©s de script automatizado. Logo, Ã© importante que vocÃª defina a porta do serviÃ§o como sendo 9999, ficando a base url entÃ£o: http://localhost:9999
+A validação dos endpoints e sua correta funcionalidade será através de script automatizado. Logo, é importante que você defina a porta do serviço como sendo 9999, ficando a base url entÃ£o: http://localhost:9999
 
-TambÃ©m ocorrerÃ¡ avaliaÃ§Ã£o tÃ©cnica do cÃ³digo-fonte produzido, bem como eventual anÃ¡lise estÃ¡tica do mesmo.
+Também ocorrerá avaliação técnica do código-fonte produzido, bem como eventual análise estática do mesmo.
 
-## Entrega do cÃ³digo
+## Entrega do código
 
-VocÃª Ã© responsÃ¡vel por entregar o cÃ³digo da forma como achar mais adequado, bem como eventuais documentaÃ§Ãµes necessÃ¡rias para a execuÃ§Ã£o do seu microserviÃ§o.
+Você é responsável por entregar o código da forma como achar mais adequado, bem como eventuais documentaçÃµes necessárias para a execução do seu microserviço.
 
 ### Bom desafio \m/
