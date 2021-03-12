@@ -68,7 +68,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9999/products/7",
+					"raw": "http://localhost:9999/products/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -76,7 +76,7 @@
 					"port": "9999",
 					"path": [
 						"products",
-						"7"
+						"1"
 					]
 				}
 			},
