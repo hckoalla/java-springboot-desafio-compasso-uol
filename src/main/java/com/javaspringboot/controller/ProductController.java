@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.javaspringboot.controller.core.ErrorResponse;
-import com.javaspringboot.controller.core.ProductService;
+import com.javaspringboot.core.ErrorResponse;
+import com.javaspringboot.core.ProductService;
 import com.javaspringboot.data.ProductRepository;
 import com.javaspringboot.entity.Product;
 
@@ -79,7 +79,6 @@ public class ProductController {
 	public ResponseEntity<List<Product>> search(@RequestParam(value = "q", required = false) String nameDescription,
 			@RequestParam(value = "min_price", required = false) Float minPrice,
 			@RequestParam(value = "max_price", required = false) Float maxPrice) {
-		System.out.println("name:" + nameDescription + " minPrice: " + minPrice + " maxPrice: " + maxPrice);
 		return ResponseEntity.ok(productRepository.findByOptionalNameOptionalDescriptionOptionalPrice(
 				Optional.ofNullable(nameDescription), Optional.ofNullable(nameDescription),
 				Optional.ofNullable(minPrice), Optional.ofNullable(maxPrice)));

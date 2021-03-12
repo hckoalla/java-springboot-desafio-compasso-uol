@@ -1,4 +1,4 @@
-package com.javaspringboot.controller.core;
+package com.javaspringboot.core;
 
 import org.springframework.http.HttpStatus;
 
